@@ -15,7 +15,7 @@ jobs:
         id: static_version
         run: |
           echo "::set-output name=major::0"
-          echo "::set-output name=minor::2"
+          echo "::set-output name=minor::1"
 
       - name: Get latest release version
         id: latest_version
