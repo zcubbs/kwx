@@ -61,8 +61,6 @@ Here's a brief overview of the configuration structure:
 
 ## Usage
 
-Before you begin, ensure that you have `kubectl` configured to the right Kubernetes cluster context.
-
 1. **Install AWX**:
     ```bash
     kwx awx install -c /path/to/config.yaml
@@ -78,3 +76,7 @@ For more detailed options and commands, use the `--help` flag.
 ## Contributing
 
 Contributions are welcome! If you find any issues, have suggestions, or would like to contribute code, please open an issue or a pull request on our GitHub page.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
