@@ -6,6 +6,12 @@ import (
 )
 
 func getKubeConfig(path string, debug bool) (string, error) {
+
+	const (
+		found             = "kubeconfig found in default location %s\n"
+		notFound          = "kubeconfig not found in default location %s\n"
+		rancherKubeconfig = "/etc/rancher/k3s/k3s.yaml"
+	)
 	if path != "" {
 		return path, nil
 	}
@@ -19,32 +25,31 @@ func getKubeConfig(path string, debug bool) (string, error) {
 	fi, err := os.Stat(kc)
 	os.IsNotExist(err)
 	if err != nil && debug {
-		fmt.Printf("kubeconfig not found in default location %s\n", kc)
+		fmt.Printf(notFound, kc)
 	}
 
 	if fi != nil {
-		fmt.Printf("kubeconfig found in default location %s\n", kc)
+		fmt.Printf(found, kc)
 		return kc, nil
 	}
 
-	kc = "/etc/rancher/k3s/k3s.yaml"
-	fi, err = os.Stat(kc)
+	fi, err = os.Stat(rancherKubeconfig)
 	os.IsNotExist(err)
 	if err != nil && debug {
-		fmt.Printf("kubeconfig not found in default location %s\n", kc)
+		fmt.Printf(notFound, rancherKubeconfig)
 	}
 
 	if fi != nil {
-		fmt.Printf("kubeconfig found in default location %s\n", kc)
+		fmt.Printf(found, rancherKubeconfig)
 		return kc, nil
 	}
 
 	kc = os.Getenv("KUBECONFIG")
 	if kc == "" {
-		return "", fmt.Errorf("kubeconfig not found")
+		return "", fmt.Errorf("KUBECONFIG variable not set, and no kubeconfig found in default locations")
 	}
 
-	fmt.Printf("kubeconfig found in default location %s\n", kc)
+	fmt.Printf(found, kc)
 	return kc, nil
 }
 
