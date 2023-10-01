@@ -6,7 +6,6 @@ import (
 )
 
 func getKubeConfig(path string, debug bool) (string, error) {
-
 	const (
 		found             = "kubeconfig found in default location %s\n"
 		notFound          = "kubeconfig not found in default location %s\n"

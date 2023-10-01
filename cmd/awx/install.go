@@ -101,6 +101,7 @@ func install(verbose bool) error {
 
 	client := helm.NewClient()
 	client.Settings.SetNamespace("awx")
+	client.Settings.KubeConfig = kc
 
 	args := map[string]string{}
 
