@@ -2,13 +2,12 @@ name: Release
 
 on:
   workflow_dispatch:
-
 permissions:
   contents: write
-
 jobs:
   release:
     if : github.triggering_actor == 'zcubbs'
+
     runs-on: ubuntu-latest
     steps:
       - name: Set Static Major and Minor Versions
