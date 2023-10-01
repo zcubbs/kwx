@@ -23,6 +23,7 @@ func getKubeConfig(path string, debug bool) (string, error) {
 	}
 
 	if fi != nil {
+		fmt.Printf("kubeconfig found in default location %s\n", kc)
 		return kc, nil
 	}
 
@@ -34,6 +35,7 @@ func getKubeConfig(path string, debug bool) (string, error) {
 	}
 
 	if fi != nil {
+		fmt.Printf("kubeconfig found in default location %s\n", kc)
 		return kc, nil
 	}
 
@@ -42,6 +44,7 @@ func getKubeConfig(path string, debug bool) (string, error) {
 		return "", fmt.Errorf("kubeconfig not found")
 	}
 
+	fmt.Printf("kubeconfig found in default location %s\n", kc)
 	return kc, nil
 }
 

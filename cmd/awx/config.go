@@ -1,9 +1,9 @@
 package awx
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/spf13/viper"
+	"github.com/zcubbs/x/pretty"
 	"path/filepath"
 )
 
@@ -28,7 +28,7 @@ func Load(path string, debug bool) (*Config, error) {
 	}
 
 	if debug {
-		printRecipe(&cfg)
+		printConfig(cfg)
 	}
 
 	return &cfg, nil
@@ -50,15 +50,13 @@ func validate(_ *Config) error {
 	return nil
 }
 
-func printRecipe(recipe *Config) {
-	jsonConfig, err := json.MarshalIndent(recipe, "", "  ")
-	if err != nil {
-		fmt.Println("error:", err)
-		return
+func printConfig(cfg Config) {
+	fmt.Println("======================config======================")
+	if cfg.Instance.AdminPass != "" {
+		cfg.Instance.AdminPass = "********"
 	}
-
-	fmt.Printf("recipe path: %s\n", viper.ConfigFileUsed())
-	fmt.Printf("%v\n", string(jsonConfig))
+	pretty.PrintJson(cfg)
+	fmt.Println("==================================================")
 }
 
 const defaultOperatorName = "awx-operator"

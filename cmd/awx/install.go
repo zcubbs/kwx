@@ -6,7 +6,6 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/zcubbs/go-k8s/kubernetes"
 	"github.com/zcubbs/x/must"
-	"github.com/zcubbs/x/pretty"
 	"kwx/pkg/helm"
 	"os"
 	"time"
@@ -150,14 +149,6 @@ func install(verbose bool) error {
 
 func createNamespace(kc string, namespace string) error {
 	return kubernetes.CreateNamespace(kc, []string{namespace})
-}
-
-func printConfig(cfg Config) {
-	fmt.Println("======================config======================")
-	if cfg.Instance.AdminPass != "" {
-		cfg.Instance.AdminPass = "********"
-	}
-	pretty.PrintJson(cfg)
 }
 
 func init() {
