@@ -506,6 +506,8 @@ github.com/yvasiyarov/gorelic v0.0.0-20141212073537-a9bba5b9ab50 h1:hlE8//ciYMzt
 github.com/yvasiyarov/gorelic v0.0.0-20141212073537-a9bba5b9ab50/go.mod h1:NUSPSUX/bi6SeDMUh6brw0nXpxHnc96TguQh0+r/ssA=
 github.com/yvasiyarov/newrelic_platform_go v0.0.0-20140908184405-b21fdbd4370f h1:ERexzlUfuTvpE74urLSbIQW0Z/6hF9t8U4NsJLaioAY=
 github.com/yvasiyarov/newrelic_platform_go v0.0.0-20140908184405-b21fdbd4370f/go.mod h1:GlGEuHIJweS1mbCqG+7vt2nvWLzLLnRHbXz5JKd/Qbg=
+github.com/zcubbs/go-k8s v0.4.0 h1:jwUuKtpUsyf42ZFkIbaQE/kqfeHQ5S7XBvR+NOX77os=
+github.com/zcubbs/go-k8s v0.4.0/go.mod h1:oYXK3g3qU1/CfIYaFvH8pVyPRS6QW5cqXK7xhkgEElw=
 github.com/zcubbs/x v0.1.8 h1:YBL6merBjrLFU4gvjzd2nZbbgv1f4nEc3ZqMOfy0tG4=
 github.com/zcubbs/x v0.1.8/go.mod h1:rtTgdac8obcdDxNDEpeUvlx0gdiYEvOlAZXt1ZbO6jA=
 go.opencensus.io v0.21.0/go.mod h1:mSImk1erAIZhrmZN+AvHh14ztQfjbGwt4TtuofqLduU=
@@ -879,8 +881,6 @@ gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
 gopkg.in/yaml.v3 v3.0.1/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
 gotest.tools/v3 v3.4.0 h1:ZazjZUfuVeZGLAmlKKuyv3IKP5orXcwtOwDQH6YVr6o=
 gotest.tools/v3 v3.4.0/go.mod h1:CtbdzLSsqVhDgMtKsx03ird5YTGB3ar27v0u/yKBW5g=
-helm.sh/helm/v3 v3.12.3 h1:5y1+Sbty12t48T/t/CGNYUIME5BJ0WKfmW/sobYqkFg=
-helm.sh/helm/v3 v3.12.3/go.mod h1:KPKQiX9IP5HX7o5YnnhViMnNuKiL/lJBVQ47GHe1R0k=
 helm.sh/helm/v3 v3.13.0 h1:XPJKIU30K4JTQ6VX/6e0hFAmEIonYa8E7wx5aqv4xOc=
 helm.sh/helm/v3 v3.13.0/go.mod h1:2PBEKsMWKLVZTojUOqMS3Eadv5mP43FBWrRgLNkNm9Y=
 honnef.co/go/tools v0.0.0-20190102054323-c2f93a96b099/go.mod h1:rf3lG4BRIbNafJWhAfAdb/ePZxsR/4RtNHQocxwk9r4=

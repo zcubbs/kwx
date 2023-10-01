@@ -2,8 +2,6 @@ module kwx
 
 go 1.21
 
-replace github.com/zcubbs/go-k8s => D:\dev\personal\go-k8s
-
 require (
 	github.com/gofrs/flock v0.8.1
 	github.com/pkg/errors v0.9.1
