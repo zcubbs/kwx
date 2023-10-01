@@ -28,7 +28,7 @@ type OperatorConfig struct {
 	HelmRepoURL   string `mapstructure:"helm_repo_url" json:"helm_repo_url"`
 	HelmRepoName  string `mapstructure:"helm_repo_name" json:"helm_repo_name"`
 	HelmChartName string `mapstructure:"helm_chart_name" json:"helm_chart_name"`
-	HelmRelease   string `mapstructure:"helm_release" json:"helm_release"`
+	HelmRelease   string `mapstructure:"helm_release_name" json:"helm_release_name"`
 }
 
 type InstanceConfig struct {

@@ -26,6 +26,17 @@ func getKubeConfig(path string, debug bool) (string, error) {
 		return kc, nil
 	}
 
+	kc = "/etc/rancher/k3s/k3s.yaml"
+	fi, err = os.Stat(kc)
+	os.IsNotExist(err)
+	if err != nil && debug {
+		fmt.Printf("kubeconfig not found in default location %s\n", kc)
+	}
+
+	if fi != nil {
+		return kc, nil
+	}
+
 	kc = os.Getenv("KUBECONFIG")
 	if kc == "" {
 		return "", fmt.Errorf("kubeconfig not found")
