@@ -22,8 +22,7 @@ func getKubeConfig(path string, debug bool) (string, error) {
 
 	kc := fmt.Sprintf("%s/.kube/config", hd)
 	fi, err := os.Stat(kc)
-	os.IsNotExist(err)
-	if err != nil && debug {
+	if err != nil && os.IsNotExist(err) && debug {
 		fmt.Printf(notFound, kc)
 	}
 
@@ -33,14 +32,13 @@ func getKubeConfig(path string, debug bool) (string, error) {
 	}
 
 	fi, err = os.Stat(rancherKubeconfig)
-	os.IsNotExist(err)
-	if err != nil && debug {
+	if err != nil && os.IsNotExist(err) && debug {
 		fmt.Printf(notFound, rancherKubeconfig)
 	}
 
 	if fi != nil {
 		fmt.Printf(found, rancherKubeconfig)
-		return kc, nil
+		return rancherKubeconfig, nil
 	}
 
 	kc = os.Getenv("KUBECONFIG")

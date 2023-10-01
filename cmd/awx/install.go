@@ -95,10 +95,6 @@ func install(verbose bool) error {
 		return err
 	}
 
-	if verbose {
-		printConfig(*cfg)
-	}
-
 	client := helm.NewClient()
 	client.Settings.SetNamespace("awx")
 	client.Settings.KubeConfig = kc
