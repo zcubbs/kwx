@@ -3,8 +3,11 @@ package awxclient
 import "fmt"
 
 type Project struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
+	ID          int    `json:"id"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	SCMType     string `json:"scm_type"`
+	SCMURL      string `json:"scm_url"`
 }
 
 func (c *Client) ListAllProjects() ([]Project, error) {
@@ -37,7 +40,7 @@ func (c *Client) GetProjectByID(projectID int) (*Project, error) {
 	return &project, nil
 }
 
-func (c *Client) AddProject(newProject Project) (*Project, error) {
+func (c *Client) CreateProject(newProject Project) (*Project, error) {
 	var createdProject Project
 
 	resp, err := c.httpClient.R().SetBody(newProject).SetResult(&createdProject).Post("/api/v2/projects/")

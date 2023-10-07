@@ -1,18 +1,31 @@
 package awxclient
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/go-resty/resty/v2"
 )
 
 type Credential struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
+	ID          int    `json:"id"`
+	Name        string `json:"name"`
+	Kind        string `json:"kind"`
+	Description string `json:"description"`
 }
 
-func (c *Client) AddCredential(cred Credential) (*resty.Response, error) {
+func (c *Client) CreateCredential(cred Credential) (*Credential, error) {
 	resp, err := c.httpClient.R().SetBody(cred).Post("/api/v2/credentials/")
-	return resp, err
+	if err != nil {
+		return nil, err
+	}
+
+	var createdCred Credential
+	err = json.Unmarshal(resp.Body(), &createdCred)
+	if err != nil {
+		return nil, err
+	}
+
+	return &createdCred, nil
 }
 
 func (c *Client) DeleteCredential(credID int) (*resty.Response, error) {

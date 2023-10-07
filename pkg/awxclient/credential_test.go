@@ -26,7 +26,7 @@ func TestAddCredential(t *testing.T) {
 	defer server.Close()
 
 	client := NewClient(server.URL, "mockToken")
-	resp, err := client.AddCredential(mockCredential)
+	resp, err := client.CreateCredential(mockCredential)
 	assert.NoError(t, err)
 	assert.Equal(t, http.StatusCreated, resp.StatusCode())
 }
